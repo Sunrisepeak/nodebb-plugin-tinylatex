@@ -1,17 +1,38 @@
-# Quickstart Plugin for NodeBB
+# TinyLaTex
 
-A starter kit for quickly creating NodeBB plugins. Comes with a pre-setup SCSS file, server side JS script with an `static:app.load` hook, and a client-side script. Most plugins need at least one of the above, so this ought to save you some time. For a full list of hooks have a look at our [wiki page](https://github.com/NodeBB/NodeBB/wiki/Hooks), and for more information about creating plugins please visit our [documentation portal](https://docs.nodebb.org/).
+A tiny latex plugins for nodebb/d2learn-forums
 
-Fork this or copy it, and using your favourite text editor find and replace all instances of `nodebb-plugin-quickstart` with `nodebb-plugin-your-plugins-name`. Change the author's name in the LICENSE and package.json files.
+## Core Logic
 
-## Hello World
-
-Really simple, just edit `public/lib/main.js` and paste in `console.log('hello world');`, and that's it!
+1. add static/tinylatex-loader.js
+2. plugin.json: add tinylatex-loader.js
+3. main.js to load:
+    if (window.TinyLaTeX?.tryLoadMathJax) {
+        window.TinyLaTeX.tryLoadMathJax();
+    }
+4. ~add admin panel: templates/plugins/tinylatex.tpl~
+5. ~lib/controllers.js: 渲染设置值 meta.settings.get()~
 
 ## Installation
 
-    npm install nodebb-plugin-quickstart
+```bash
+npm install nodebb-plugin-tinylatex
+```
+
+or
+
+```bash
+git clone https://github.com/Sunrisepeak/nodebb-plugin-tinylatex.git
+cd nodebb-plugin-tinylatex
+npm link
+cd yourNodeBB
+npm link nodebb-plugin-tinylatex
+./nodebb activate nodebb-plugin-tinylatex
+./nodebb build && ./nodebb restart
+```
 
 ## Screenshots
 
-Don't forget to add screenshots!
+![Image](https://github.com/user-attachments/assets/651614be-3211-4fec-bb35-4665666f3258)
+
+[**更多示例/交流讨论**](http://forum.d2learn.org/post/489)

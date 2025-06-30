@@ -1,6 +1,6 @@
 {
-	"id": "nodebb-plugin-quickstart",
-	"url": "https://github.com/NodeBB/nodebb-plugin-quickstart",
+	"id": "nodebb-plugin-tinylatex",
+	"url": "https://github.com/Sunrisepeak/nodebb-plugin-tinylatex",
 	"library": "./library.js",
 	"hooks": [
 		{ "hook": "static:app.load", "method": "init" },
@@ -11,17 +11,18 @@
 		"static": "./static"
 	},
 	"scss": [
-		"scss/quickstart.scss"
+		"scss/tinylatex.scss"
 	],
 	"scripts": [
-		"public/lib/main.js"
+		"public/lib/main.js",
+		"static/tinylatex-loader.js"
 	],
 	"acpScripts": [
 		"public/lib/acp-main.js"
 	],
 	"modules": {
-		"../client/quickstart.js": "./public/lib/quickstart.js",
-		"../admin/plugins/quickstart.js": "./public/lib/admin.js"
+		"../client/tinylatex.js": "./public/lib/tinylatex.js",
+		"../admin/plugins/tinylatex.js": "./public/lib/admin.js"
 	},
 	"templates": "templates"
 }

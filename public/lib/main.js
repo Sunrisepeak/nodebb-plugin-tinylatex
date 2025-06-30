@@ -18,7 +18,12 @@
 	});
 
 	hooks.on('action:ajaxify.end', (/* data */) => {
+		//console.log("hooks.on ...");
 		// called everytime user navigates between pages including first load
+		if (window.TinyLaTeX?.tryLoadMathJax) {
+			//console.log("ajaxify.end: Trying to load MathJax...");
+			window.TinyLaTeX.tryLoadMathJax();
+		}
 	});
 })();
 
@@ -29,4 +34,9 @@
 
 $(document).ready(function () {
 	// ...
+	//console.log("document ready...");
+	if (window.TinyLaTeX?.tryLoadMathJax) {
+		//console.log("$(document).ready: Trying to load MathJax...");
+		window.TinyLaTeX.tryLoadMathJax();
+	}
 });
